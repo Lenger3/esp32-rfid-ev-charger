@@ -1,0 +1,33 @@
+PLAKET KUTUSU (v2) — kontrol
+Dis: 124.0 x 124.0 x 48.0 mm (kapak dahil) | ic: 118.0 x 118.0 x 42.0
+Plaket ustu yigin: 21.1 mm, headroom: 12.9 mm
+--------------------------------------------------------------------------------
+[PASS] plaket yan bosluk                            9.0 mm/yan
+[PASS] ic yukseklik (yigin + kablo donusu)          gerekli 40.1 / ic 42.0 / pay 1.9
+[PASS] tunik soket + kablo icerde kaliyor           headroom 12.9
+[PASS] kablo cikisi tel hacmine yetiyor             slot 532 mm2 / gerekli 238 mm2 (20 tel)
+[PASS] kablo cikisi plaket ustunde                  slot z0 14.0 / pcb top 12.6
+[PASS] kablo cikisi govde icinde                    ust 28.0 / govde 42.0
+[PASS] USB gecisi plaket ustunde                    z0 13.5 / pcb top 12.6
+[PASS] USB gecisi yeterli                           19x13
+[PASS] USB gecisi ESP32 hizasinda (elle dogrula)    cy=38 (ESP32 USB ucu plaket-local x~25 -> ic x~37)
+[PASS] 12V deligi capi                              10.0 mm
+[PASS] 12V deligi plaket ustunde                    cz 21.0 / pcb top 12.6
+[PASS] vida kulaklari ile standoff cakismiyor       4 kulp / 4 standoff
+[PASS] vida kulaklari plakete degmiyor              kulak merkezleri [(6.8, 6.8), (117.2, 6.8), (6.8, 117.2), (117.2, 117.2)]
+[PASS] montaj kulagi kablo cikisini kapatmiyor      kulaklar +Y ve -Y dis yuzeyde, kablo cikisi +Y ic yuzeyde (dikey ayri)
+[PASS] yan havalandirma sigiyor                     5 kanal, x [19, 37, 55, 73, 91]
+[PASS] kapak havalandirmasi sigiyor                 5 kanal
+[PASS] kapak dudagi boslugu                         0.8 mm/yan
+[PASS] kablo baglama tirnagi slotun onunde          slot yari 19 mm
+--------------------------------------------------------------------------------
+Yapisal (CSG)
+--------------------------------------------------------------------------------
+[PASS] suslu parantez dengesi                       fark=0
+[PASS] body + lid modulleri                         
+[PASS] standoff kesimden sonra                      cut=31 std=34
+[PASS] ic bosluk dogru girintide                    
+[PASS] kapak dudagi var                             
+[PASS] taban (floor) korunuyor                      ic bosluk z=WALL'den basliyor
+--------------------------------------------------------------------------------
+SONUC: GECTI (0 hata)

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Cihaz · Şarj Paneli{% endblock %}
+{% block body %}
+<h1>Cihaz</h1>
+
+{% if err %}<div class="err">{{ err }}</div>{% endif %}
+
+<div class="grid2">
+  <section class="card">
+    <h2>Durum</h2>
+    <table class="kv">
+      <tr><td>Durum</td><td><span class="pill {{ 'p-ok' if dev.online else 'p-bad' }}">
+        {{ 'Çevrimiçi' if dev.online else 'Çevrimdışı' }}</span></td></tr>
+      <tr><td>Son sinyal</td><td>{{ dev.last_seen | dt }}</td></tr>
+      <tr><td>Sürüm</td><td class="mono">{{ dev.firmware or '—' }}</td></tr>
+      <tr><td>Yerel IP</td><td class="mono">{{ dev.ip or '—' }}</td></tr>
+      <tr><td>Durum kodu</td><td class="mono">{{ dev.state or '—' }}</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Erişim anahtarı</h2>
+    <p class="hint">ESP32 bu token ile panele bağlanır. Firmware'de
+      <code>config.h → API_TOKEN</code>.</p>
+    <pre class="token">{{ dev.api_token }}</pre>
+    <form method="post" action="/device/rotate-token"
+          onsubmit="return confirm('Token değişince ESP32 bağlanamaz. Firmware güncellemen gerekecek. Devam?')">
+      <button class="danger sm">Yeni token üret</button>
+    </form>
+    <p class="hint">Token'ı değiştirdikten sonra ESP32'ye yeni firmware yüklemen şart.</p>
+  </section>
+</div>
+
+<section class="card">
+  <h2>Cihaz bilgileri</h2>
+  <form method="post" action="/device">
+    <div class="field">
+      <label>Görünen ad</label>
+      <input name="name" value="{{ dev.name }}" maxlength="64" class="narrow"
+             placeholder="EVCHARGE-01">
+      <span class="hint">Panelde ve ESP32 ekranında görünen isim.</span>
+    </div>
+
+    <div class="field">
+      <label>Tuya cihaz ID</label>
+      <input name="tuya_id" value="{{ dev.tuya_id or '' }}" maxlength="32"
+             class="mono" placeholder="0123456789abcdef0123"
+             pattern="[A-Za-z0-9]{8,32}">
+      <span class="hint">
+        8–32 karakter, sadece harf ve rakam. Smart Life → Cihaz → Cihaz Bilgisi.
+      </span>
+    </div>
+
+    <div class="field">
+      <label>Tuya local_key</label>
+      <input name="local_key" type="password" maxlength="16"
+             class="mono" autocomplete="new-password"
+             placeholder="{{ '••••••••••••••••  (kayıtlı)' if dev.local_key else '16 karakter' }}">
+      <span class="hint">
+        Şarj cihazının LAN kontrolü için AES anahtarı — <b>16 karakter</b>.
+        {% if dev.local_key %}
+          Kayıtlı: <code>{{ dev.local_key[:3] }}••••{{ dev.local_key[-3:] }}</code> ·
+          değiştirmek için yenisini yaz, boş bırakırsan korunur.
+        {% else %}
+          Henüz girilmemiş. <code>tuya_local.py</code> veya Tuya bulutundan alınır.
+        {% endif %}
+      </span>
+      {% if dev.local_key %}
+      <label class="chk"><input type="checkbox" name="clear_local_key" value="1">
+        local_key'i sil</label>
+      {% endif %}
+    </div>
+
+    <button class="save" type="submit">Kaydet</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Olaylar</h2>
+  {% if events %}
+  <table>
+    <tr><th>Zaman</th><th>Olay</th><th>Detay</th></tr>
+    {% for e in events %}
+    <tr>
+      <td class="mono small">{{ e.created_at | dt }}</td>
+      <td><span class="pill">{{ e.kind }}</span></td>
+      <td class="mono small">{{ e.detail }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Olay yok.</p>
+  {% endif %}
+</section>
+{% endblock %}

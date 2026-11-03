@@ -1,0 +1,42 @@
+EV Sarj Kutusu — geometri kontrolu
+Dis olcu: 140.0 x 170.0 x 62.0 mm | ic: 134.0 x 164.0 x 56.0
+------------------------------------------------------------------------------
+[PASS] bolme yuksekligi toplami                   164.0 / 164.0
+[PASS] ust bolme plaketi aliyor                   ust=124.0 gerekli=118.0
+[PASS] plaket yan bosluk (sag)                    17.0 mm
+[PASS] plaket yan bosluk (sol)                    14.0 mm
+[PASS] derinlik (yigin+kablo donusu)              gerekli=41.1 ic=56.0 pay=14.9
+[PASS] ESP32 on panele mesafe                     34.4 mm
+[PASS] OLED pencere >= aktif alan                 57.0x30.0 vs 55.0x27.5
+[PASS] OLED pencere <= modul                      57.0x30.0 vs 62.0x40.0
+[PASS] OLED modul > ic genislik                   modul 62 + 2x5 <= 134
+[PASS] buton govde araligi                        en dar 7.80 mm
+[PASS] butonlar panele sigiyor                    ilk=34.5 son=94.5
+[PASS] RC522 -> buton bosluk                      10.9 mm
+[PASS] buton -> OLED bosluk                       9.9 mm
+[PASS] OLED -> ust kenar                          14.0 mm
+[PASS] RC522 -> bolme                             5.0 mm
+[PASS] RC522 modul <= pencere                     60x40 vs 62x42
+[PASS] RC522 on et kalinligi                      1.2 mm (<=1.5 okunabilirlik icin)
+[PASS] PSU alt bolmeye sigiyor                    90(w)x32(h)x50(d), bolme 134x37x56
+[PASS] rakor araligi                              en dar 43.0 mm
+[PASS] rakor z merkezi govde icinde               z=31.0
+[PASS] vida kulaklari plakete degmiyor            cakisan=[] en yakin bosluk=4.0 mm
+[PASS] standoff'lar govde icinde                  nokta=4
+[PASS] USB gecisi plaket ustunde                  usb_cz=30.0 esp_z0=9.6
+[PASS] USB gecisi yan duvara uzak (uyari)         ESP32 USB plaket-local x~17 (mutlak 34), yan duvara 31 mm uzak -> panel USB uzatmasi kullanilacak
+[PASS] hava kanallari sigiyor                     6 kanal
+[PASS] bolme gecisi rakor hattinda                divider z ayni, x ayri: rakor [22.0, 67.0, 110.0] / gecis [40.0, 94.0]
+[PASS] PSU tirnaklari alt bolmede                 y [4.0, 4.0, 33.0, 33.0] | x [19.0, 115.0, 19.0, 115.0]
+[PASS] kapak dudagi boslugu                       1.6 mm/yan
+------------------------------------------------------------------------------
+Yapisal (CSG) kontrol
+------------------------------------------------------------------------------
+[PASS] suslu parantez dengesi                     fark=0
+[PASS] ic bosluk kesimi dogru seviyede            girinti=8 beklenir
+[PASS] standoff'lar kesimden sonra                cut=27 standoff=33
+[PASS] body ve lid modulleri var                  
+[PASS] RC522 cebi 1.2 mm birakiyor                
+[PASS] taban (floor) korunuyor                    
+------------------------------------------------------------------------------
+SONUC: GECTI (0 hata)

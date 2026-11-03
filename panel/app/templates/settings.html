@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Ayarlar · Şarj Paneli{% endblock %}
+{% block body %}
+<h1>Şarj ayarları</h1>
+<p class="hint">Kaydettiğinde <b>rev</b> artar; ESP32 bir sonraki senkronda yeni ayarları çeker.</p>
+
+<form method="post" action="/settings">
+<section class="card">
+  <h2>Akım</h2>
+  <div class="field">
+    <label>Maksimum akım (A)</label>
+    <input name="max_a" type="number" min="6" max="32" value="{{ s.max_a if s else 16 }}">
+    <span class="hint">Donanım üst sınırı. 22 kW trifaze ≈ 32 A.</span>
+  </div>
+  <div class="field">
+    <label>Varsayılan akım (A)</label>
+    <input name="def_a" type="number" min="6" max="32" value="{{ s.def_a if s else 10 }}">
+    <span class="hint">Şarj başlarken kullanılan akım.</span>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Kurallar</h2>
+  <label class="chk big">
+    <input type="checkbox" name="require_card" value="true" {{ 'checked' if s and s.require_card }}>
+    Kart zorunlu (kartsız şarj başlamasın)
+  </label>
+  <div class="field">
+    <label>Maksimum oturum süresi (dk)</label>
+    <input name="max_session_min" type="number" min="0" max="1440"
+           value="{{ s.max_session_min if s else 480 }}">
+    <span class="hint">0 = sınırsız.</span>
+  </div>
+  <div class="field">
+    <label>Oturum başına hedef kWh</label>
+    <input name="target_kwh" type="number" step="0.5" min="0" max="200"
+           value="{{ s.target_kwh if s else 0 }}">
+    <span class="hint">0 = sınırsız. Hedefe ulaşınca şarj otomatik biter.</span>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Zamanlama</h2>
+  <label class="chk big">
+    <input type="checkbox" name="schedule_en" value="true" {{ 'checked' if s and s.schedule_en }}>
+    Zamanlama aktif (bu pencere dışında şarj başlamaz)
+  </label>
+  <div class="grid2 tight">
+    <div class="field">
+      <label>Başlangıç</label>
+      <input name="schedule_start" type="time" value="{{ s.schedule_start if s else '22:00' }}">
+    </div>
+    <div class="field">
+      <label>Bitiş</label>
+      <input name="schedule_end" type="time" value="{{ s.schedule_end if s else '06:00' }}">
+    </div>
+  </div>
+
+  <label class="grouplabel">Günler</label>
+  <div class="days">
+    {% set g = ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'] %}
+    {% for i in range(7) %}
+    <label class="day">
+      <input type="checkbox" name="days" value="{{ i }}"
+             {{ 'checked' if daychecked[i] else '' }}>
+      <span>{{ g[i] }}</span>
+    </label>
+    {% endfor %}
+  </div>
+</section>
+
+<button class="save" type="submit">Kaydet</button>
+</form>
+{% endblock %}

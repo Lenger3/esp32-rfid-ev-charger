@@ -1,0 +1,39 @@
+# secrets — never commit
+tuya/config.json
+tuya/.token_cache.json
+tuya/.session.json
+config.json
+.token_cache.json
+.session.json
+
+# firmware secrets
+firmware/kart_sistem/src/config.h
+
+# panel
+panel/.env
+panel/.venv/
+panel/panel.db
+panel/data/
+panel/__pycache__/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.venv*/
+venv/
+
+# platformio
+firmware/**/.pio/
+firmware/kart_sistem/sim/obj/
+firmware/kart_sistem/sim/sim
+firmware/kart_sistem/sim/test_store
+firmware/kart_sistem/sim/.test_buttons
+firmware/kart_sistem/sim/.test_store
+
+# generated device framebuffers (PNG previews are committed, raw buffers are not)
+firmware/kart_sistem/sim/out/*.raw
+
+# macOS
+.DS_Store
+._*

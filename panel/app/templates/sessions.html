@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Kayıtlar · Şarj Paneli{% endblock %}
+{% block body %}
+<h1>Şarj kayıtları</h1>
+
+<section class="card">
+  <div class="toolbar">
+    <span class="muted">Son {{ rows|length }} kayıt · toplam <b>{{ total }} kWh</b></span>
+    <form method="get" class="inline">
+      <select name="limit" onchange="this.form.submit()">
+        {% for n in [50, 100, 250, 500] %}
+        <option value="{{ n }}" {{ 'selected' if rows|length==n }}>{{ n }}</option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+
+  {% if rows %}
+  <table>
+    <tr><th>Zaman</th><th>Kullanıcı</th><th>UID</th><th class="r">kWh</th><th>Durum</th></tr>
+    {% for r in rows %}
+    <tr>
+      <td class="mono small">{{ r.created_at | dt }}</td>
+      <td>{{ r.name or '—' }}</td>
+      <td class="mono small">{{ r.uid }}</td>
+      <td class="r">{{ '%.2f'|format(r.kwh) }}</td>
+      <td>
+        {% set lbl = reasons.get(r.reason, r.reason) %}
+        <span class="pill {{ 'p-ok' if r.reason==0 else 'p-warn' }}">{{ lbl }}</span>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Kayıt yok.</p>
+  {% endif %}
+</section>
+{% endblock %}

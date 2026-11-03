@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Kullanıcılar · Şarj Paneli{% endblock %}
+{% block body %}
+<h1>Kullanıcılar</h1>
+
+<section class="card">
+  <h2>Yeni kart ekle</h2>
+  <form method="post" action="/users/add" class="inline">
+    <input name="uid" placeholder="UID  (D3BF4E07 veya D3:BF:4E:07)" required class="mono">
+    <input name="name" placeholder="İsim" required maxlength="32">
+    <input name="quota_kwh" type="number" min="0" value="0" placeholder="Kota" title="0 = sınırsız">
+    <label class="chk"><input type="checkbox" name="is_admin" value="true"> admin</label>
+    <button type="submit">Ekle</button>
+  </form>
+  <p class="hint">Kota 0 = sınırsız. ESP32 ekranındaki <b>KART OKUT</b> akışından UID'yi okuyabilirsin.</p>
+</section>
+
+<section class="card">
+  <h2>Kayıtlı kartlar ({{ cards|length }})</h2>
+  {% if cards %}
+  <table>
+    <tr><th>İsim</th><th>UID</th><th class="r">Kullanım</th><th class="r">Kota</th><th>Durum</th><th></th></tr>
+    {% for c in cards %}
+    <tr>
+      <td>
+        <form method="post" action="/users/{{ c.id }}/update" class="rowform">
+          <input name="name" value="{{ c.name }}" maxlength="32" class="narrow">
+      </td>
+      <td class="mono small">{{ c.uid }}</td>
+      <td class="r">{{ '%.1f'|format(c.used_kwh) }}</td>
+      <td class="r"><input name="quota_kwh" type="number" min="0" value="{{ c.quota_kwh }}" class="num"></td>
+      <td>
+          <label class="chk"><input type="checkbox" name="active" value="true" {{ 'checked' if c.active }}> aktif</label>
+          <label class="chk"><input type="checkbox" name="is_admin" value="true" {{ 'checked' if c.is_admin }}> admin</label>
+      </td>
+      <td class="nowrap">
+          <button type="submit" class="sm">Kaydet</button>
+        </form>
+        <form method="post" action="/users/{{ c.id }}/reset" class="inlinef"
+              onsubmit="return confirm('{{ c.name }} kullanımı sıfırlansın mı?')">
+          <button class="sm ghost">Sıfırla</button>
+        </form>
+        <form method="post" action="/users/{{ c.id }}/delete" class="inlinef"
+              onsubmit="return confirm('{{ c.name }} kartı silinsin mi?')">
+          <button class="sm danger">Sil</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Henüz kart yok.</p>
+  {% endif %}
+</section>
+{% endblock %}

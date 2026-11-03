@@ -1,0 +1,89 @@
+{
+  "wall": 3.0,
+  "lid_t": 3.0,
+  "interior_w": 118.0,
+  "interior_h": 118.0,
+  "interior_d": 42.0,
+  "pcb_w": 100.0,
+  "pcb_h": 100.0,
+  "pcb_t": 1.6,
+  "standoff_h": 8.0,
+  "standoff_d": 6.0,
+  "standoff_hole": 2.7,
+  "pcb_inset": 4.0,
+  "header_h": 8.5,
+  "socket_h": 11.0,
+  "bend_need": 11.0,
+  "cable_slot_w": 38.0,
+  "cable_slot_h": 14.0,
+  "cable_slot_z0": 14.0,
+  "cable_tie_posts": 2,
+  "usb_open_w": 19.0,
+  "usb_open_h": 13.0,
+  "usb_open_cy": 38.0,
+  "usb_open_z0": 13.5,
+  "psu_hole_d": 10.0,
+  "psu_hole_cy": 54.0,
+  "psu_hole_cz": 21.0,
+  "vent_w": 3.0,
+  "vent_len": 26.0,
+  "vent_z0": 7.0,
+  "vent_x_off": 16.0,
+  "vent_gap": 18.0,
+  "lid_vent_len": 32.0,
+  "lid_vent_y_off": 30.0,
+  "lid_vent_gap": 18.0,
+  "boss_d": 6.5,
+  "boss_hole": 2.8,
+  "boss_margin": 0.5,
+  "tab_w": 30.0,
+  "tab_d": 10.0,
+  "tab_t": 4.0,
+  "tab_hole": 4.4,
+  "tie_post_d": 5.0,
+  "tie_post_h": 14.0,
+  "_derived": {
+    "pcb_x0": 12.0,
+    "pcb_y0": 12.0,
+    "pcb_z0": 11.0,
+    "pcb_top": 12.6,
+    "stack_top": 32.1,
+    "headroom": 12.899999999999999,
+    "boss_xy": [
+      [
+        6.75,
+        6.75
+      ],
+      [
+        117.25,
+        6.75
+      ],
+      [
+        6.75,
+        117.25
+      ],
+      [
+        117.25,
+        117.25
+      ]
+    ],
+    "standoff_xy": [
+      [
+        16.0,
+        16.0
+      ],
+      [
+        108.0,
+        16.0
+      ],
+      [
+        16.0,
+        108.0
+      ],
+      [
+        108.0,
+        108.0
+      ]
+    ]
+  }
+}

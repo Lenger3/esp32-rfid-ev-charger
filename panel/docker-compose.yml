@@ -1,0 +1,51 @@
+services:
+  panel:
+    build: .
+    container_name: sarj-panel
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://sarj:${DB_PASS}@db:5432/sarj
+      COOKIE_SECURE: "1"
+      TZ_NAME: Europe/Istanbul
+    ports:
+      # SADECE localhost — disariyi Caddy acar. 0.0.0.0 yazmak = guvenlik acigi.
+      - "127.0.0.1:8090:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [sarjnet]
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+    mem_limit: 512m
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+  db:
+    image: postgres:16-alpine
+    container_name: sarj-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sarj
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: sarj
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sarj -d sarj"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks: [sarjnet]
+    # port YOK — disariya kapali, sadece sarjnet icinden erisilir
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+networks:
+  sarjnet:
+    driver: bridge

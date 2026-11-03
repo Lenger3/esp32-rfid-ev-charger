@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Giriş · Şarj Paneli{% endblock %}
+{% block body %}
+<div class="loginbox">
+  <h1>⚡ Şarj Paneli</h1>
+  <p class="sub">EVCHARGE-01 yönetim</p>
+  {% if hata %}<div class="err">{{ hata }}</div>{% endif %}
+  <form method="post" action="/login">
+    <label>Yönetici şifresi</label>
+    <input type="password" name="sifre" autofocus required autocomplete="current-password">
+    <button type="submit">Giriş</button>
+  </form>
+</div>
+{% endblock %}

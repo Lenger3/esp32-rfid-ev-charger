@@ -1,0 +1,20 @@
+{
+  "client_id": "",
+  "client_secret": "",
+  "region": "ue",
+  "device_id": "",
+  "local_key": "",
+  "ip": "",
+  "local_version": 3.3,
+  "dp": {
+    "switch": null,
+    "work_mode": null,
+    "charge_cur_set": null,
+    "work_state": null,
+    "forward_energy_total": null,
+    "charge_energy_once": null,
+    "power_total": null,
+    "temp_current": null,
+    "charge_time": null
+  }
+}

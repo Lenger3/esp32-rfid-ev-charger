@@ -1,0 +1,26 @@
+#pragma once
+// ===========================================================================
+//  AG YAPILANDIRMASI — bu dosyayi config.h olarak kopyala
+//
+//    cp src/config.h.example src/config.h
+//
+//  config.h git'e GIRMEZ (.gitignore). Sifreler orada durur.
+// ===========================================================================
+
+// --- router (internet yuksek hizi) ---
+#define WIFI_STA_SSID   "EV_SSID"
+#define WIFI_STA_PASS   "EV_SIFRE"
+
+// --- sarj cihazinin baglanacagi kendi AP'miz ---
+#define WIFI_AP_SSID    "EVCHARGE-SETUP"
+#define WIFI_AP_PASS    "change-me-8chars"      // >= 8 karakter
+#define WIFI_AP_CHANNEL 6
+
+// --- cihaz kimligi (Tuya) ---
+#define TUYA_DEVICE_ID  "0123456789abcdef0123"
+
+// --- VPS panel ---
+#define PANEL_URL       "https://panel.example.com"
+#define API_TOKEN       "panel-de-uretilen-token"   // panel > Cihaz > Erişim anahtarı
+
+// NOT: CHARGER_SIM artik board.h icinde.

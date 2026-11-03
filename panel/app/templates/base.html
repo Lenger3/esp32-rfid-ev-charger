@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Şarj Paneli{% endblock %}</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% if page %}
+<header>
+  <div class="brand">⚡ Şarj Paneli</div>
+  <nav>
+    <a href="/" class="{{ 'on' if page=='home' }}">Genel</a>
+    <a href="/users" class="{{ 'on' if page=='users' }}">Kullanıcılar</a>
+    <a href="/sessions" class="{{ 'on' if page=='sessions' }}">Kayıtlar</a>
+    <a href="/settings" class="{{ 'on' if page=='settings' }}">Ayarlar</a>
+    <a href="/device" class="{{ 'on' if page=='device' }}">Cihaz</a>
+  </nav>
+  <a class="out" href="/logout">Çıkış</a>
+</header>
+{% endif %}
+
+<main>
+{% if msg %}<div class="flash">{{ msg }}</div>{% endif %}
+{% block body %}{% endblock %}
+</main>
+
+<footer>EVCHARGE-01 · kartlı şarj sistemi</footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  firmware-build:
+    name: Firmware build (esp32dev)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Cache PlatformIO
+        uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: pio-${{ runner.os }}-${{ hashFiles('firmware/kart_sistem/platformio.ini') }}
+      - name: Install PlatformIO
+        run: pip install platformio
+      - name: Build
+        working-directory: firmware/kart_sistem
+        run: |
+          cp src/config.h.example src/config.h
+          pio run
+
+  firmware-tests:
+    name: Firmware unit tests (host)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run host tests
+        working-directory: firmware/kart_sistem/sim
+        run: ./test.sh
+
+  panel-tests:
+    name: Panel e2e
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        working-directory: panel
+        run: pip install -r requirements.txt
+      # server and suite share one step: a background process started in an
+      # earlier step is not guaranteed to be alive in the next one
+      - name: Start panel and run e2e suite
+        working-directory: panel
+        env:
+          ADMIN_PASSWORD: dev-only-pass
+          SESSION_SECRET: ci-secret
+          COOKIE_SECURE: "0"
+          DATABASE_URL: sqlite:///./panel.db
+        run: |
+          python -m uvicorn app.main:app --port 8090 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8090/login >/dev/null && break
+            sleep 1
+          done
+          curl -sf http://127.0.0.1:8090/login >/dev/null || { echo "panel did not start"; exit 1; }
+          python test_e2e.py

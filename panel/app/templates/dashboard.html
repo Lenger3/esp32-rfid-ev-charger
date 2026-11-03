@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block body %}
+{% if msg %}<div class="warn ok">{{ msg }}</div>{% endif %}
+
+<div class="row">
+  <div class="stat">
+    <div class="k">Bu ay</div>
+    <div class="v">{{ month_kwh }} <small>kWh</small></div>
+  </div>
+  <div class="stat">
+    <div class="k">Son 24 saat</div>
+    <div class="v">{{ today_kwh }} <small>kWh</small></div>
+  </div>
+  <div class="stat">
+    <div class="k">Kullanıcı</div>
+    <div class="v">{{ n_cards }}</div>
+  </div>
+  <div class="stat">
+    <div class="k">Cihaz</div>
+    <div class="v {{ 'ok' if dev.online else 'bad' }}">
+      {{ 'Bağlı' if dev.online else 'Çevrimdışı' }}
+    </div>
+    <div class="hint">{{ dev.last_seen | dt }}</div>
+  </div>
+</div>
+
+<section class="card charge">
+  <h2>Şarj kontrolü
+    {% if dev.state %}<span class="tag">{{ dev.state }}</span>{% endif %}
+    {% if s and s.cmd_id and s.cmd_id != dev.cmd_ack %}
+      <span class="tag warn">komut bekliyor…</span>
+    {% endif %}
+  </h2>
+
+  <div class="row four">
+    <div class="stat mini">
+      <div class="k">Anlık güç</div>
+      <div class="v">{{ '%.1f'|format(dev.power_kw or 0) }} <small>kW</small></div>
+    </div>
+    <div class="stat mini">
+      <div class="k">Oturum</div>
+      <div class="v">{{ '%.2f'|format(dev.session_kwh or 0) }} <small>kWh</small></div>
+    </div>
+    <div class="stat mini">
+      <div class="k">Akım</div>
+      <div class="v">{{ dev.current_a or 0 }} <small>A</small></div>
+    </div>
+    <div class="stat mini">
+      <div class="k">Sıcaklık</div>
+      <div class="v">{{ '%.0f'|format(dev.temp_c or 0) }} <small>°C</small></div>
+    </div>
+  </div>
+
+  <form method="post" action="/charge/start" class="inline">
+    <div class="field inline-f">
+      <label>Yüklenecek kWh</label>
+      <input name="target_kwh" type="number" step="0.5" min="0" max="200"
+             value="{{ s.target_kwh if s else 0 }}"
+             placeholder="0 = sınırsız">
+      <span class="hint">Hedefe ulaşınca şarj otomatik biter.</span>
+    </div>
+    <div class="field inline-f">
+      <label>Akım (A)</label>
+      <input name="amps" type="number" min="6" max="{{ s.max_a if s else 16 }}"
+             value="{{ s.def_a if s else 10 }}">
+      <span class="hint">Üst sınır {{ s.max_a if s else 16 }} A.</span>
+    </div>
+    <button class="save" type="submit">Şarjı başlat</button>
+  </form>
+
+  <form method="post" action="/charge/stop" class="inline stopf">
+    <button class="danger" type="submit">Şarjı durdur</button>
+    <span class="hint">Kart okutulmadan, uzaktan.</span>
+  </form>
+</section>
+
+<div class="grid2">
+  <section class="card">
+    <h2>Kullanıcılar</h2>
+    {% if cards %}
+    <table>
+      <tr><th>İsim</th><th class="r">Kullanım</th><th class="r">Kota</th></tr>
+      {% for c in cards %}
+      <tr>
+        <td>{{ c.name }}{% if c.is_admin %} <span class="tag">admin</span>{% endif %}</td>
+        <td class="r">{{ '%.1f'|format(c.used_kwh) }} kWh</td>
+        <td class="r">
+          {% if c.quota_kwh == 0 %}<span class="muted">∞</span>
+          {% else %}{{ c.quota_kwh }} kWh{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a class="more" href="/users">Tümünü gör →</a>
+    {% else %}
+    <p class="muted">Henüz kart yok. <a href="/users">Kart ekle</a></p>
+    {% endif %}
+  </section>
+
+  <section class="card">
+    <h2>Son oturumlar</h2>
+    {% if recent %}
+    <table>
+      <tr><th>Zaman</th><th>Kullanıcı</th><th class="r">kWh</th></tr>
+      {% for r in recent %}
+      <tr>
+        <td class="mono">{{ r.created_at | dt }}</td>
+        <td>{{ r.name or r.uid }}</td>
+        <td class="r">{{ '%.2f'|format(r.kwh) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a class="more" href="/sessions">Tüm kayıtlar →</a>
+    {% else %}
+    <p class="muted">Henüz şarj oturumu yok.</p>
+    {% endif %}
+  </section>
+</div>
+
+{% if not dev.online %}
+<div class="warn">
+  Cihaz <b>{{ dev.last_seen | dt }}</b> tarihinden beri sinyal göndermiyor.
+  ESP32 açık mı, Wi-Fi bağlı mı kontrol et.
+</div>
+{% endif %}
+{% endblock %}

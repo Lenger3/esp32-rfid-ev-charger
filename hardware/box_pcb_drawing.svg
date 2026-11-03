@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1306" height="434" viewBox="0 0 1306 434">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="256.00" y="18.00" font-family="Helvetica,Arial" font-size="10.0" text-anchor="middle" fill="#000" font-weight="bold">UST GORUNUS (kapak cikarilmis)</text>
+<rect x="70.00" y="40.00" width="372.00" height="372.00" fill="#f4f4f4" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="79.00" y="49.00" width="354.00" height="354.00" fill="#ffffff" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="106.00" y="76.00" width="300.00" height="300.00" fill="#e8eef7" stroke="#2b5" stroke-width="0.60" rx="0.00"/>
+<text x="256.00" y="226.00" font-family="Helvetica,Arial" font-size="9.0" text-anchor="middle" fill="#187" font-weight="normal">PLAKET 100x100</text>
+<circle cx="118.00" cy="88.00" r="9.00" fill="#9d9" stroke="#373" stroke-width="0.40"/>
+<circle cx="394.00" cy="88.00" r="9.00" fill="#9d9" stroke="#373" stroke-width="0.40"/>
+<circle cx="118.00" cy="364.00" r="9.00" fill="#9d9" stroke="#373" stroke-width="0.40"/>
+<circle cx="394.00" cy="364.00" r="9.00" fill="#9d9" stroke="#373" stroke-width="0.40"/>
+<circle cx="90.25" cy="60.25" r="9.75" fill="#bbb" stroke="#333" stroke-width="0.40"/>
+<circle cx="90.25" cy="60.25" r="4.20" fill="#fff" stroke="#333" stroke-width="0.40"/>
+<circle cx="421.75" cy="60.25" r="9.75" fill="#bbb" stroke="#333" stroke-width="0.40"/>
+<circle cx="421.75" cy="60.25" r="4.20" fill="#fff" stroke="#333" stroke-width="0.40"/>
+<circle cx="90.25" cy="391.75" r="9.75" fill="#bbb" stroke="#333" stroke-width="0.40"/>
+<circle cx="90.25" cy="391.75" r="4.20" fill="#fff" stroke="#333" stroke-width="0.40"/>
+<circle cx="421.75" cy="391.75" r="9.75" fill="#bbb" stroke="#333" stroke-width="0.40"/>
+<circle cx="421.75" cy="391.75" r="4.20" fill="#fff" stroke="#333" stroke-width="0.40"/>
+<rect x="199.00" y="403.00" width="114.00" height="9.00" fill="#fdd" stroke="#c00" stroke-width="0.40" rx="0.00"/>
+<rect x="70.00" y="125.50" width="9.00" height="57.00" fill="#fdd" stroke="#c00" stroke-width="0.40" rx="0.00"/>
+<circle cx="437.50" cy="202.00" r="15.00" fill="#fdd" stroke="#c00" stroke-width="0.40"/>
+<rect x="122.50" y="40.00" width="9.00" height="9.00" fill="#def" stroke="#08c" stroke-width="0.40" rx="0.00"/>
+<rect x="176.50" y="40.00" width="9.00" height="9.00" fill="#def" stroke="#08c" stroke-width="0.40" rx="0.00"/>
+<rect x="230.50" y="40.00" width="9.00" height="9.00" fill="#def" stroke="#08c" stroke-width="0.40" rx="0.00"/>
+<rect x="284.50" y="40.00" width="9.00" height="9.00" fill="#def" stroke="#08c" stroke-width="0.40" rx="0.00"/>
+<rect x="338.50" y="40.00" width="9.00" height="9.00" fill="#def" stroke="#08c" stroke-width="0.40" rx="0.00"/>
+<rect x="40.00" y="181.00" width="30.00" height="90.00" fill="#eee" stroke="#666" stroke-width="0.50" rx="0.00"/>
+<circle cx="55.00" cy="226.00" r="6.60" fill="#fff" stroke="#666" stroke-width="0.40"/>
+<rect x="442.00" y="181.00" width="30.00" height="90.00" fill="#eee" stroke="#666" stroke-width="0.50" rx="0.00"/>
+<circle cx="457.00" cy="226.00" r="6.60" fill="#fff" stroke="#666" stroke-width="0.40"/>
+<line x1="40.00" y1="438.00" x2="472.00" y2="438.00" stroke="#000" stroke-width="0.30"/><line x1="40.00" y1="434.00" x2="40.00" y2="442.00" stroke="#000" stroke-width="0.30"/><line x1="472.00" y1="434.00" x2="472.00" y2="442.00" stroke="#000" stroke-width="0.30"/><text x="256.00" y="434.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="middle" fill="#000" font-weight="normal">144 mm (kulaklar dahil)</text>
+<line x1="26.00" y1="40.00" x2="26.00" y2="412.00" stroke="#000" stroke-width="0.30"/><line x1="22.00" y1="40.00" x2="30.00" y2="40.00" stroke="#000" stroke-width="0.30"/><line x1="22.00" y1="412.00" x2="30.00" y2="412.00" stroke="#000" stroke-width="0.30"/><text x="22.00" y="226.00" font-family="Helvetica,Arial" font-size="8" fill="#000" text-anchor="middle" transform="rotate(-90 22.00 226.00)">124 mm</text>
+<text x="653.00" y="18.00" font-family="Helvetica,Arial" font-size="10.0" text-anchor="middle" fill="#000" font-weight="bold">ON GORUNUS (kapak takili)</text>
+<rect x="467.00" y="60.00" width="372.00" height="144.00" fill="#f4f4f4" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="476.00" y="69.00" width="354.00" height="126.00" fill="#fff" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="467.00" y="60.00" width="372.00" height="9.00" fill="#ddd" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<text x="653.00" y="67.50" font-family="Helvetica,Arial" font-size="8.0" text-anchor="middle" fill="#000" font-weight="normal">KAPAK</text>
+<rect x="503.00" y="166.20" width="300.00" height="4.80" fill="#2b5" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="506.00" y="171.00" width="18.00" height="24.00" fill="#9d9" stroke="#373" stroke-width="0.40" rx="0.00"/>
+<rect x="782.00" y="171.00" width="18.00" height="24.00" fill="#9d9" stroke="#373" stroke-width="0.40" rx="0.00"/>
+<rect x="596.00" y="120.00" width="114.00" height="42.00" fill="#fdd" stroke="#c00" stroke-width="0.40" rx="0.00"/>
+<text x="653.00" y="144.00" font-family="Helvetica,Arial" font-size="7.0" text-anchor="middle" fill="#c00" font-weight="normal">KABLO CIKISI</text>
+<rect x="830.00" y="126.00" width="9.00" height="30.00" fill="#fdd" stroke="#c00" stroke-width="0.40" rx="0.00"/>
+<line x1="855.00" y1="60.00" x2="855.00" y2="204.00" stroke="#000" stroke-width="0.30"/><line x1="851.00" y1="60.00" x2="859.00" y2="60.00" stroke="#000" stroke-width="0.30"/><line x1="851.00" y1="204.00" x2="859.00" y2="204.00" stroke="#000" stroke-width="0.30"/><text x="851.00" y="132.00" font-family="Helvetica,Arial" font-size="8" fill="#000" text-anchor="middle" transform="rotate(-90 851.00 132.00)">48 mm</text>
+<line x1="467.00" y1="222.00" x2="839.00" y2="222.00" stroke="#000" stroke-width="0.30"/><line x1="467.00" y1="218.00" x2="467.00" y2="226.00" stroke="#000" stroke-width="0.30"/><line x1="839.00" y1="218.00" x2="839.00" y2="226.00" stroke="#000" stroke-width="0.30"/><text x="653.00" y="218.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="middle" fill="#000" font-weight="normal">124 mm</text>
+<text x="1080.00" y="18.00" font-family="Helvetica,Arial" font-size="10.0" text-anchor="middle" fill="#000" font-weight="bold">YAN GORUNUS (sagdan)</text>
+<rect x="894.00" y="60.00" width="372.00" height="144.00" fill="#f4f4f4" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="903.00" y="69.00" width="354.00" height="126.00" fill="#fff" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="894.00" y="60.00" width="372.00" height="9.00" fill="#ddd" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<rect x="979.50" y="124.50" width="57.00" height="39.00" fill="#fdd" stroke="#c00" stroke-width="0.40" rx="0.00"/>
+<text x="1008.00" y="147.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="middle" fill="#c00" font-weight="normal">USB</text>
+<rect x="930.00" y="166.20" width="300.00" height="4.80" fill="#2b5" stroke="#000" stroke-width="0.40" rx="0.00"/>
+<line x1="894.00" y1="222.00" x2="1266.00" y2="222.00" stroke="#000" stroke-width="0.30"/><line x1="894.00" y1="218.00" x2="894.00" y2="226.00" stroke="#000" stroke-width="0.30"/><line x1="1266.00" y1="218.00" x2="1266.00" y2="226.00" stroke="#000" stroke-width="0.30"/><text x="1080.00" y="218.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="middle" fill="#000" font-weight="normal">124 mm</text>
+<text x="40.00" y="244.00" font-family="Helvetica,Arial" font-size="9.0" text-anchor="start" fill="#000" font-weight="bold">LEJANT</text>
+<rect x="40.00" y="250.00" width="10.00" height="9.00" fill="#2b5" stroke="#333" stroke-width="0.30" rx="0.00"/>
+<text x="56.00" y="258.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">plaket 100x100x1.6</text>
+<rect x="40.00" y="263.00" width="10.00" height="9.00" fill="#9d9" stroke="#333" stroke-width="0.30" rx="0.00"/>
+<text x="56.00" y="271.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">standoff (PCB)</text>
+<rect x="40.00" y="276.00" width="10.00" height="9.00" fill="#bbb" stroke="#333" stroke-width="0.30" rx="0.00"/>
+<text x="56.00" y="284.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">M3 govde kulagi</text>
+<rect x="40.00" y="289.00" width="10.00" height="9.00" fill="#fdd" stroke="#333" stroke-width="0.30" rx="0.00"/>
+<text x="56.00" y="297.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">kablo / USB / 12V gecisi</text>
+<rect x="40.00" y="302.00" width="10.00" height="9.00" fill="#def" stroke="#333" stroke-width="0.30" rx="0.00"/>
+<text x="56.00" y="310.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">havalandirma</text>
+<rect x="40.00" y="315.00" width="10.00" height="9.00" fill="#eee" stroke="#333" stroke-width="0.30" rx="0.00"/>
+<text x="56.00" y="323.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">montaj kulagi (buyuk kutuya)</text>
+<text x="40.00" y="344.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">Dis olcu: 144 x 124 mm (montaj kulaklari dahil), yukseklik 48 mm</text>
+<text x="40.00" y="356.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">Malzeme: PETG, 3 perde, %%25 dolgu, 0.2 mm katman</text>
+<text x="40.00" y="368.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">Kablo cikisi (+Y): 38 x 14 mm, z 14..28</text>
+<text x="40.00" y="380.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">USB gecisi (-X): 19 x 13 mm</text>
+<text x="40.00" y="392.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">12V delik (+X): O10 mm</text>
+<text x="40.00" y="404.00" font-family="Helvetica,Arial" font-size="8.0" text-anchor="start" fill="#000" font-weight="normal">Ekran / buton / RC522 BU KUTUDA YOK - buyuk kutuya gider</text>
+</svg>
