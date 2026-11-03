@@ -169,7 +169,7 @@ the I2C/SPI lines, is a `#error` — not a mystery bug in the field.
 
 | Panel | PCB |
 |---|---|
-| ![Panel](docs/img/panel-dashboard.png) | ![PCB](docs/img/pcb-layout.png) |
+| ![Panel](docs/img/panel-dashboard.png) | ![PCB](docs/img/pcb.png) |
 
 More: [users](docs/img/panel-users.png) ·
 [sessions](docs/img/panel-sessions.png) ·
