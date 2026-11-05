@@ -171,6 +171,11 @@ the I2C/SPI lines, is a `#error` — not a mystery bug in the field.
 |---|---|
 | ![Panel](docs/img/panel-dashboard.png) | ![PCB](docs/img/pcb.png) |
 
+
+| **Architecture** |
+|---|
+| ![**Architecture**](docs/img/esp32-architecture.png) |
+
 More: [users](docs/img/panel-users.png) ·
 [sessions](docs/img/panel-sessions.png) ·
 [device settings](docs/img/panel-device.png) ·
